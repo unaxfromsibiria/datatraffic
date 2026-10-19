@@ -1,0 +1,8 @@
+include README.md
+include pyproject.toml
+# Rust workspace sources: needed so `pip install` from source can compile the cdylib.
+include Cargo.toml
+include Cargo.lock
+recursive-include libdatatraffic *
+include hubdatatraffic/Cargo.toml
+include pydatatraffic/requirements.txt

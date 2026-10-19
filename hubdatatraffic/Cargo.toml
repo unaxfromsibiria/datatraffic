@@ -1,0 +1,11 @@
+[package]
+name = "hubdatatraffic"
+version = "0.1.1"
+edition = "2024"
+
+[dependencies]
+libdatatraffic = { path = "../libdatatraffic" }
+tokio = { version = "1", features = ["full"] }
+log = "~0.4"
+env_logger = "~0.11"
+clap = { version = "4", features = ["derive"] }
