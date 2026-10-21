@@ -144,3 +144,27 @@ def test_flush_waits_for_send_handoff(monkeypatch):
 
     # After flush, exactly one hand-off to the transport has occurred.
     assert asyncio.run(scenario()) == [("demo", "a.txt")]
+
+
+# --- FFI thread pool sizing --------------------------------------------------
+
+
+def test_pool_size_is_two_on_multicore(monkeypatch):
+    from pydatatraffic import api
+
+    monkeypatch.setattr(api.os, "cpu_count", lambda: 4)
+    assert api._pool_size() == 2
+
+
+def test_pool_size_is_one_on_single_core(monkeypatch):
+    from pydatatraffic import api
+
+    monkeypatch.setattr(api.os, "cpu_count", lambda: 1)
+    assert api._pool_size() == 1
+
+
+def test_pool_size_is_one_when_cpu_unknown(monkeypatch):
+    from pydatatraffic import api
+
+    monkeypatch.setattr(api.os, "cpu_count", lambda: None)
+    assert api._pool_size() == 1
