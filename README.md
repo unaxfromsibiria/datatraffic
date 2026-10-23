@@ -4,6 +4,8 @@
 
 The goal: give data-processing components a simple encrypted channel for passing binary artifacts between pipeline stages, without each component knowing about Redis or encryption.
 
+![about datatraffic](info.jpg)
+
 ## Features
 
 - **Redis pub/sub transport** - publish/subscribe on per-project topics (`dt:<project>`); any client sends to any project it knows the name of.
