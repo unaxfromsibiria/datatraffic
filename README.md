@@ -6,6 +6,10 @@ The goal: give data-processing components a simple encrypted channel for passing
 
 ![about datatraffic](info.jpg)
 
+## Used in other projects
+
+`datatraffic` is used as a dependency by [sayteacher](https://github.com/unaxfromsibiria/sayteacher). That repository shows how the library is wired into an application - see it for a real-world example of connecting `pydatatraffic`.
+
 ## Features
 
 - **Redis pub/sub transport** - publish/subscribe on per-project topics (`dt:<project>`); any client sends to any project it knows the name of.
